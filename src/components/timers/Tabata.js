@@ -1,8 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
 import DisplayTime from "../generic/DisplayTime";
-import Button from '../generic/Button'
-import Panel from '../generic/Panel'
+import Button from '../generic/Button';
+import Panel from '../generic/Panel';
 
 const Container = styled.div`
     background-color: #FF0000;

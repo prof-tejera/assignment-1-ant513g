@@ -17,13 +17,13 @@ const Circle = styled.div`
     align-content: center;
     justify-content: center;
     overflow: auto;
-    background-color: #1D2D44;
+    background-color: #394053;
     border-radius: 50%;
     width: 200px;
     height: 200px;
     color: #EFF1F3;
     border: 2px dashed white;
-    outline: 4px solid #1D2D44;
+    outline: 4px solid #394053;
 `;
 
 
@@ -31,10 +31,12 @@ class DisplayTime extends Component {
     constructor() {
       super();
       this.state = {
+        time: {
           hh: 10,
           mm: 10,
           ss: 10,
           ms: 10,
+        },
       };
     }
     
