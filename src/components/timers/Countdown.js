@@ -1,12 +1,24 @@
 import React from "react";
 import styled from 'styled-components';
-
 import DisplayTime from '../generic/DisplayTime';
 import Input from '../generic/Input';
 import Button from '../generic/Button';
 import Panel from '../generic/Panel';
+import Container from "../generic/Container";
 
 
+//  Countdown
+//  A timer that counts down from X amount of time
+// (e.g.count down to 0, starting at 2 minutes and 30)
+
+
+const TimeContainer = styled.div`
+display: flex;
+align-content: center;
+justify-content: center;
+margin: 1rem;
+flex-wrap: wrap;
+`;
 
 class Countdown extends React.Component {
   // handleNumberClick = (value) => {
@@ -20,13 +32,14 @@ class Countdown extends React.Component {
   render() {
     return (
       <Panel>
-        <DisplayTime />
         <Input />
+        <Container>
         <Button value={'Start'} type='Start' onClick = { this.onMouseDown }
           onMouseUp={this.onMouseUp} />
-        <Button value={'Reset'} onClick = { this.onMouseDown }
+        <Button value={'Reset'} color={'blue'} onClick = { this.onMouseDown }
           onMouseUp={this.onMouseUp} />
-        </Panel>
+          </Container>
+      </Panel>
     );
   }
 }

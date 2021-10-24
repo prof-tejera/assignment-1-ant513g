@@ -2,6 +2,7 @@ import { Component } from "react";
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+
 const Container = styled.div`
   border: none;
   padding: 16px;
@@ -13,48 +14,46 @@ const Container = styled.div`
   
 `;
 const Circle = styled.div`
+    box-sizing: border-box;
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+    height: 100px;
     display: flex;
     align-content: center;
     justify-content: center;
     overflow: auto;
-    background-color: #394053;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    color: #EFF1F3;
-    border: 2px dashed white;
+    border-radius: 16px;
+    background-color: #3B4355;
     outline: 4px solid #394053;
+    color: #EF5B5B;
+    font-family: 'Courier Prime', monospace;
+    font-size: 24px;
+    font-weight: 400;
 `;
 
 
 class DisplayTime extends Component {
-    constructor() {
-      super();
-      this.state = {
-        time: {
-          hh: 10,
-          mm: 10,
-          ss: 10,
-          ms: 10,
-        },
-      };
-    }
-    
     render() {
       return (
-        <Circle><Container> {this.state.hh}:{this.state.mm}:{this.state.ss}.{this.state.ms}
+        <Circle>
+          <Container>
+          {this.props.hh}:
+          {this.props.mm}:
+          {this.props.ss}.
+          {this.props.ms}
           </Container>
           </Circle>
         );
-    }
-  }
+      };
   
-  DisplayTime.propTypes = {
-    hh: PropTypes.number,
-      mm: PropTypes.number,
-      ss: PropTypes.number,
-      ms: PropTypes.number,
-  }
+}
+  // DisplayTime.propTypes = {
+  //   hh: PropTypes.number,
+  //     mm: PropTypes.number,
+  //     ss: PropTypes.number,
+  //     ms: PropTypes.number,
+ 
   
-  export default DisplayTime;
+export default DisplayTime;
 

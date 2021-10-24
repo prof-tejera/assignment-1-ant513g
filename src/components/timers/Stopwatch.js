@@ -1,9 +1,14 @@
 import React from "react";
 import styled from 'styled-components';
-import DisplayTime from "../generic/DisplayTime";
 import Button from '../generic/Button';
 import Panel from '../generic/Panel';
+import Input from "../generic/Input";
+import Container from "../generic/Container";
 
+
+//  Stopwatch
+//  A timer that counts up to X amount of time
+//  (e.g.count up to 2 minutes and 30 seconds, starting at 0) |
 
 
 
@@ -19,11 +24,13 @@ class Stopwatch extends React.Component {
   render() {
     return (
       <Panel>
-        <DisplayTime />
+        <Input />
+        <Container>
         <Button value={'Start'} onClick = { this.onMouseDown }
           onMouseUp={this.onMouseUp} />
-        <Button value={'Reset'} onClick = { this.onMouseDown }
+        <Button value={'Reset'} click='' type='true' onClick = { this.onMouseDown }
           onMouseUp={this.onMouseUp} />
+          </Container>
         </Panel>
     );
   }
