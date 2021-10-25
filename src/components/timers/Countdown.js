@@ -12,13 +12,6 @@ import Container from "../generic/Container";
 // (e.g.count down to 0, starting at 2 minutes and 30)
 
 
-const TimeContainer = styled.div`
-display: flex;
-align-content: center;
-justify-content: center;
-margin: 1rem;
-flex-wrap: wrap;
-`;
 
 class Countdown extends React.Component {
   // handleNumberClick = (value) => {

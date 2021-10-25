@@ -5,6 +5,7 @@ import Button from '../generic/Button';
 import Panel from '../generic/Panel';
 import Input from "../generic/Input";
 import Container from "../generic/Container";
+import DisplayRounds from "../generic/DisplayRounds";
 
 
 //  TABATA
@@ -26,6 +27,7 @@ class Tabata extends React.Component {
   render() {
     return (
       <Panel>
+        <DisplayRounds />
         <Input />
         <Container>
         <Button value={'Start'} onClick={this.handleNumberClick} />

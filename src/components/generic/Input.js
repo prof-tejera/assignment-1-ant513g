@@ -2,8 +2,9 @@ import { Component } from "react";
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import DisplayTime from "./DisplayTime";
-  
-const Container = styled.div `
+import Container from "./Container";
+
+const BoxContainer = styled.div `
   text-align: center;
   margin: auto;
   padding: 1rem;
@@ -17,14 +18,6 @@ const Container = styled.div `
   cursor: pointer; 
 `;
   
-const TimeContainer = styled.div`
-display: flex;
-align-content: center;
-justify-content: center;
-margin: 1rem;
-flex-wrap: wrap;
-`;
-
 const Select = styled.select`
 width: 68px;
 display: block;
@@ -93,9 +86,9 @@ class Input extends Component {
   }
   render() {
     return (
-      <Container>
+      <BoxContainer>
         <DisplayTime hh={this.state.hh} mm={this.state.mm} ss={this.state.ss} ms='00' />
-        <TimeContainer>
+        <Container>
           <SelectContainer>
         <Label for="hh">Hours:</Label>
         <Select name="hh" size="5" value={this.state.hh} onChange={this.hhValue}>
@@ -291,8 +284,8 @@ class Input extends Component {
           <option value='59'>59</option>
           </Select>
           </SelectContainer>
-        </TimeContainer>
-             </ Container>
+        </Container>
+             </ BoxContainer>
        
       );
     }
