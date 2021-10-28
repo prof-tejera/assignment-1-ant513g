@@ -1,37 +1,62 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
-import Button from '../generic/Button';
 import Panel from '../generic/Panel';
-import Input from "../generic/Input";
-import Container from "../generic/Container";
+import Container from '../generic/Container';
+import Display from '../generic/Display';
+import Button from '../generic/Button';
+import DisplayRounds from '../generic/DisplayRounds';
+import DisplayTime from '../generic/DisplayTime';
 
 
-//  Stopwatch
-//  A timer that counts up to X amount of time
-//  (e.g.count up to 2 minutes and 30 seconds, starting at 0) |
-
-
-
+// For the stopwatch, each new lap will be displayed on the bottom of the app with the time elasped since the last lap.
 class Stopwatch extends React.Component {
-  handleNumberClick = (value) => {
-    if (!this.state.operator) {
-      this.setState({ first: `${this.state.first || ""}${value}` });
-    } else {
-      this.setState({ second: `${this.state.second || ""}${value}` });
-    }
-  };
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      time: 0,
+      name: 'Lap',
+      lap: 1,
+      type: 'Start',
+      value: 'Start',
+    };
+  }
   render() {
     return (
       <Panel>
-        <Input />
+        <Display>
+          <DisplayTime hh={this.state.hh} mm={this.state.mm} ss={this.state.ss} ms='00' />
+        </Display>
         <Container>
-        <Button value={'Start'} onClick = { this.onMouseDown }
-          onMouseUp={this.onMouseUp} />
-        <Button value={'Reset'} click='' type='true' onClick = { this.onMouseDown }
-          onMouseUp={this.onMouseUp} />
-          </Container>
-        </Panel>
+        <Button value={this.state.value} type={this.state.type}
+            onClick = {() => { if (this.state.pressed) {
+                  this.setState({
+                    type: 'Start',
+                    pressed: false,
+                    down: false,
+                    value: 'Start',
+                  });
+                } else {
+                  this.setState({
+                    type: 'Stop',
+                    pressed: true,
+                    down: true,
+                    value: 'Stop',
+                  }); } } }/>
+        <Button value={'Reset'} type={'Reset'}onClick={e => {
+                this.setState({
+                  hh: 0,
+                  mm: 0,
+                  ss: 0,
+                  hhLap: 0,
+                  mmLap: 0,
+                  ssLap: 0,
+                });
+              }} />
+        <Button value={'Lap'} />
+         
+        </Container>
+        <DisplayRounds name={this.state.name} lap={this.state.lap} hhLap={this.state.hhLap} mmLap={this.state.mmLap} ssLap={this.state.ssLap} msLap={0}/>
+       </Panel>
     );
   }
 }

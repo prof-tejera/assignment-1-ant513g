@@ -5,22 +5,46 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 
-const Container = styled.div `
-text-align: center;
-  margin: auto;
-  padding: 1rem;
-  border-radius: 8px;
-  width: 80px;
-  height: 50px;
-  overflow: auto;
+const buttonType = {
+  Default: '#4037C4',
+  Start: '#057C48',
+  Stop: '#AD0A0F',
+  Pause: '#CDAE3E',
+  Lap: '#4037C4',
+  Reset: '#4037C4',
+}
+
+const sizes = {
+  small: 48,
+  medium: 60,
+  large: 80,
+};
+
+const Container = styled.button `
+  display: inline;
   box-sizing: border-box;
+  overflow: auto;
+  vertical-align: middle;
+  text-align: center;
+  margin: auto;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
+  border-radius: 8px;
   border: none;
-  display: flex;
-  align-content: center;
-  justify-content: center;
   font-size: 16px;
-  background-color: ${props => (props.click ? '#EF5B5B' : '#499247') || (props.type ? '#ff0000' : '#ffff00')};
-  vertical-align: baseline;
+  color: white;
+  background-color: ${(props) => props.type || "#4037C4"};
+  box-shadow: ${props => (props.down ? 'inset 0 0 5px black' : 'inset 1px 1px 5px #6760D2')};
+  cursor: pointer;
+  &:hover {
+    font-weight: 600;
+    background-color:${(props) => props.type || "#342D9F"};
+    box-shadow: inset 1px 1px 5px #6760D2;
+  }
+  &:active {
+    background-color: #342D9F;
+    box-shadow: inset 1px 1px 5px #25253C;
+  }
   
 `;
 
@@ -31,89 +55,49 @@ const Circle = styled.div `
     overflow: auto;
     color: #EFF1F3;
     cursor: pointer;
-`;
-
-
-const StyledButton = styled.button`
-
-
+    .something {
+      background-color: orange; 
+    }
 `;
 
 class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      click: false,
       value: 'Start',
-      type: false,
+      pressed: false,
     };
-    
-  }
-
-
-  // onClick={() => {
-  //   this.setState(
-  //     oldState => {
-  //       // State changes are asynchronous so instead of using
-  //       // this.state, use the function
-  //       const { current: oldCurrent } = oldState;
-
-  //       return {
-  //         current: oldCurrent + 1,
-  //       };
-  //     },
-  //     () => {
-  //       // Here we have the new state
-  //       console.log(this.state);
-  //     },
-  //   );
-  // }}
-
-
-
-  //clearTimeout()
-
-  onClick = () => {
-    if (this.state.click) {
-      this.setState({
-        click: false,
-        value: 'Start',
-        type: false,
-      });
-    } else {
-      this.setState({
-        click: true,
-        value: 'Stop',
-        type: true,
-      });
-    }
-      
-    }
-    // this.props.onClick(this.props.value);
-  
-
+}
   render() {
-    return ( 
-    <Circle >
+    const size = sizes[this.props.size];
+    const type = buttonType[this.props.type];
+    const { onClick } = this.props;
+    return (
+      <Circle >
         <Container
-          click={this.state.click}
+          pressed={this.state.pressed}
           value={this.state.value}
-          onClick={this.onClick}
-        // onMouseUp={this.onMouseUp} 
+          size={size}
+          type={type}
+          onClick={this.props.onClick}
         >
           {this.props.value}
         </ Container>
+        
       </Circle >
     );
   }
 }
 
 Button.propTypes = {
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.node,
-  ])
-}
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  type: PropTypes.oneOf(["Default", "Start", "Stop", "Pause", "Lap","Cancel","Set", "Reset"]),
+
+};
+
+Button.defaultProps = {
+  size: "medium",
+  type: "Default",
+};
 
 export default Button;

@@ -1,36 +1,74 @@
-import React from "react";
+import React from 'react';
 import styled from 'styled-components';
 import DisplayTime from '../generic/DisplayTime';
 import Input from '../generic/Input';
 import Button from '../generic/Button';
 import Panel from '../generic/Panel';
-import Container from "../generic/Container";
-
-
-//  Countdown
-//  A timer that counts down from X amount of time
-// (e.g.count down to 0, starting at 2 minutes and 30)
-
-
+import Container from '../generic/Container';
+import Display from '../generic/Display';
 
 class Countdown extends React.Component {
-  // handleNumberClick = (value) => {
-  //   if (!this.state.operator) {
-  //     this.setState({ first: `${this.state.first || ""}${value}` });
-  //   } else {
-  //     this.setState({ second: `${this.state.second || ""}${value}` });
-  //   }
-  // };
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      type: 'Start',
+      value: 'Start',
+    };
+  }
+
   render() {
     return (
       <Panel>
-        <Input />
+        <Display>
+          <DisplayTime hh={this.state.hh} mm={this.state.mm} ss={this.state.ss} ms='00' />
+        </Display>
         <Container>
-        <Button value={'Start'} type='Start' onClick = { this.onMouseDown }
-          onMouseUp={this.onMouseUp} />
-        <Button value={'Reset'} color={'blue'} onClick = { this.onMouseDown }
-          onMouseUp={this.onMouseUp} />
+        <Input name={'Hours'} value={this.state.hh}
+              onChange={e => {
+                this.setState({
+                  hh: e.target.value,
+                });
+              }}
+            />
+             <Input name={'Minutes'} value={this.state.mm}
+              onChange={e => {
+                this.setState({
+                  mm: e.target.value,
+                });
+              }}
+            />
+             <Input name={'Seconds'} value={this.state.ss}
+              onChange={e => {
+                this.setState({
+                  ss: e.target.value,
+                });
+              }}
+          />
+        </Container>
+        <Container>
+        <Button value={this.state.value} type={this.state.type}
+            onClick = {() => { if (this.state.pressed) {
+                  this.setState({
+                    type: 'Start',
+                    pressed: false,
+                    down: false,
+                    value: 'Start',
+                  });
+                } else {
+                  this.setState({
+                    type: 'Stop',
+                    pressed: true,
+                    down: true,
+                    value: 'Stop',
+                  }); } } }/>
+        <Button value={'Reset'} type={'Reset'} onClick={e => {
+                this.setState({
+                  hh: 0,
+                  mm: 0,
+                  ss: 0,
+                  ms: 0,
+                });
+              }} />
           </Container>
       </Panel>
     );
