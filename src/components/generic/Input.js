@@ -49,13 +49,6 @@ margin: auto;
 text-align: center;
 `;
 
-const SelectContainer = styled.div`
-display: block;
-margin: 1rem;
-`;
-
-  
-
 class Input extends Component {
   constructor(props) {
     super(props);
