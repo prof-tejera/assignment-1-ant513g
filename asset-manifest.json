@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/assignment-1-ant513g/static/css/main.9a02c093.chunk.css",
+    "main.js": "/assignment-1-ant513g/static/js/main.37716d29.chunk.js",
+    "main.js.map": "/assignment-1-ant513g/static/js/main.37716d29.chunk.js.map",
+    "runtime-main.js": "/assignment-1-ant513g/static/js/runtime-main.148e6661.js",
+    "runtime-main.js.map": "/assignment-1-ant513g/static/js/runtime-main.148e6661.js.map",
+    "static/js/2.52372377.chunk.js": "/assignment-1-ant513g/static/js/2.52372377.chunk.js",
+    "static/js/2.52372377.chunk.js.map": "/assignment-1-ant513g/static/js/2.52372377.chunk.js.map",
+    "index.html": "/assignment-1-ant513g/index.html",
+    "static/css/main.9a02c093.chunk.css.map": "/assignment-1-ant513g/static/css/main.9a02c093.chunk.css.map",
+    "static/js/2.52372377.chunk.js.LICENSE.txt": "/assignment-1-ant513g/static/js/2.52372377.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.148e6661.js",
+    "static/js/2.52372377.chunk.js",
+    "static/css/main.9a02c093.chunk.css",
+    "static/js/main.37716d29.chunk.js"
+  ]
+}
