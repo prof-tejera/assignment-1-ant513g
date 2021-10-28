@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import DisplayTime from '../generic/DisplayTime';
 import Input from '../generic/Input';
 import Button from '../generic/Button';

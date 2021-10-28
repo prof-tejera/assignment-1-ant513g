@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Panel from '../generic/Panel';
 import Container from '../generic/Container';
 import Display from '../generic/Display';
