@@ -68,7 +68,7 @@ class Input extends Component {
           size="5"
           onChange={this.props.onChange}
         >
-          <Option value='0'>0</Option>
+          <Option value='0'>0</Option> 
           <Option value='1'>1</Option>
           <Option value='2'>2</Option>
           <Option value='3'>3</Option>

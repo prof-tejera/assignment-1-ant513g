@@ -92,7 +92,7 @@ class Button extends Component {
 Button.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   type: PropTypes.oneOf(["Default", "Start", "Stop", "Pause", "Lap","Cancel","Set", "Reset"]),
-
+ 
 };
 
 Button.defaultProps = {

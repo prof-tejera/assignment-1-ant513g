@@ -9,7 +9,7 @@ import DisplayTime from "../generic/DisplayTime";
 import Display from "../generic/Display";
 
 const Label = styled.text`
-padding: 0;
+padding: 0; 
 font-size: 16px;
 color: white;
 border: none;
@@ -37,7 +37,7 @@ const Hide = styled.div`
 `;
 
 const Rounds = styled.text`
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Courier Prime', monospace; 
   box-sizing: border-box;
   overflow: auto;
   font-size: 20px;
@@ -56,7 +56,7 @@ const HR = styled.hr`
 
 
 
-// The idea for the tabata is when you click the +, it will add a set in the bottom of the application. 
+// The idea for the tabata is when you click the +, it will add a set in the bottom of the application.  
 // Then the user would be able to manually edit each set. The amount of sets equal one round.
 // I thought this way would work better so the user would be able to have more than two types of sets with varying times.
 // The display also shows the rounds and sets (lap) that are left
@@ -78,9 +78,9 @@ class Tabata extends React.Component {
       <Panel>
         <Display>
           <Label>Time Left:</Label>
-          <DisplayTime name={'Rounds'}  hh={this.state.hh} mm={this.state.mm} ss={this.state.ss} ms='00' />
+          <DisplayTime name={'Rounds'}  hh={this.state.hh} mm={this.state.mm} ss={this.state.ss} ms='00' /> 
           <Container>
-              <Label>Rounds Left:
+              <Label>Rounds Left: 
               <Rounds>{this.state.rounds}</Rounds>
               </Label>
               <Label>Sets Left:
