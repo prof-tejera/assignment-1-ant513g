@@ -9,7 +9,7 @@ import DisplayRounds from "../generic/DisplayRounds";
 import Display from "../generic/Display";
 
 const Label = styled.text`
-padding: 0;
+padding: 0; 
 font-size: 16px;
 color: white;
 border: none;
@@ -22,7 +22,7 @@ display: block;
 `;
 
 const Rounds = styled.text`
-  font-family: 'Courier Prime', monospace;
+  font-family: 'Courier Prime', monospace; 
   box-sizing: border-box;
   overflow: auto;
   font-size: 20px;
